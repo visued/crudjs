@@ -19,7 +19,7 @@ function cadastrar(tema) {
     }
 
     obj.attr1 = document.getElementById('attr1').value
-    obj.attr2 = Number(document.getElementById('attr2').value)
+    obj.attr2 = document.getElementById('attr2').value
     obj.attr3 = document.getElementById('attr3').value
     
     // vamos recuperar o ID por causa da atualização
@@ -94,7 +94,8 @@ function consultar(tema) {
                 const imagemRemocao = document.createElement('img')
                 imagemRemocao.setAttribute('src', 'remove.png')
                     // inserir o atributo onclick=remover(id)
-                imagemRemocao.setAttribute('onclick', `remover(${obj.id}, ${tema}, ${endpoint})`)
+                console.log(`remover(${obj.id}, ${tema})`);
+                imagemRemocao.setAttribute('onclick', `remover(${JSON.stringify(obj)}, '${endpoint}')`);
                 coluna4.appendChild(imagemRemocao)
                     // cria coluna 5
                 const coluna5 = document.createElement('td')
@@ -102,7 +103,7 @@ function consultar(tema) {
                 const imagemAtualiza = document.createElement('img')
                 imagemAtualiza.setAttribute('src', 'atualiza.png')
                     // inserir o atributo onclick=atualizar(obj)
-                imagemAtualiza.setAttribute('onclick', `atualizar(${JSON.stringify(obj)})`)
+                imagemAtualiza.setAttribute('onclick', `atualizar(${JSON.stringify(obj)})`);
                 coluna5.appendChild(imagemAtualiza)
                     // adiciona as colunas na linha
                 linha.appendChild(coluna1)
@@ -121,11 +122,13 @@ function consultar(tema) {
 
 }
 
-function remover(id, tema, endpoint) {
+function remover(obj, endpoint) {
+    console.log(obj.id);
+    console.log(endpoint);
     // cria um objeto para fazer requisição
     let request = new XMLHttpRequest()
-        // abri a conexão
-    request.open('DELETE', `http://localhost:8080/${endpoint}/${id}`, true)
+    // abri a conexão
+    request.open(`DELETE`, `http://localhost:8080/${endpoint}/${id}`, true)
     request.onload = function() {
             if ((request.status >= 200) && (request.status < 400)) {
                 console.log(`Conectou com sucesso`)
@@ -135,7 +138,7 @@ function remover(id, tema, endpoint) {
         }
         // envia os dados
     request.send()
-    alert(`${tema} removido com suceso`);
+    alert(`${endpoint} removido com suceso`);
         // executa on load do body, que chama o consultar
     location.reload()
 }
