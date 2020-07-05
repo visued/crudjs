@@ -1,10 +1,10 @@
-package br.com.unifacef;
+package br.com.unifacef.medicamento;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LivroApplicationTests {
+class MedicamentoApplicationTests {
 
 	@Test
 	void contextLoads() {

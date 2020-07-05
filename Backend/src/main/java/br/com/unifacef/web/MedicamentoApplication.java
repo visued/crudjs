@@ -1,13 +1,13 @@
-package br.com.unifacef;
+package br.com.unifacef.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LivroApplication {
+public class MedicamentoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LivroApplication.class, args);
+		SpringApplication.run(MedicamentoApplication.class, args);
 	}
 
 }
