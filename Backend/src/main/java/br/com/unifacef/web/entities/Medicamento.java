@@ -8,9 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Medicamento {
 	@Id
 	private String id;
-	private String nome;
-	private Integer concentracao;
-	private Float valor;
+	private String attr1;
+	private Integer attr2;
+	private String attr3;
 	
 	public Medicamento() {
 		
@@ -24,37 +24,36 @@ public class Medicamento {
 		this.id = id;
 	}
 	@NotNull(message="Nome não pode ser nulo")
-	public String getNome() {
-		return nome;
+	public String getAttr1() {
+		return attr1;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setAttr1(String attr1) {
+		this.attr1 = attr1;
 	}
-	
-	@NotNull(message="Concentracao não pode ser nulo")
-	public Integer getConcentracao() {
-		return concentracao;
+	@NotNull(message="Concentração não pode ser nulo")
+	public Integer getAttr2() {
+		return attr2;
 	}
 
-	public void setConcentracao(Integer concentracao) {
-		this.concentracao = concentracao;
+	public void setAttr2(Integer attr2) {
+		this.attr2 = attr2;
 	}
-	
 	@NotNull(message="Valor não pode ser nulo")
-	public Float getValor() {
-		return valor;
+	public String getAttr3() {
+		return attr3;
 	}
 
-	public void setValor(Float valor) {
-		this.valor = valor;
+	public void setAttr3(String attr3) {
+		this.attr3 = attr3;
 	}
 
 	@Override
 	public String toString() {
-		return "Medicamento [id=" + id + ", nome=" + nome + ", concentracao="
-				+ concentracao + ", valor=" + valor + "]";
+		return "Medicamento [id=" + id + ", attr1=" + attr1 + ", attr2=" + attr2 + ", attr3=" + attr3 + "]";
 	}
+
+	
 	
 	
 

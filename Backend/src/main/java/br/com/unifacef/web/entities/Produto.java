@@ -11,45 +11,51 @@ public class Produto {
 	
 	@Id
 	private String id;
-	private String nome;
-	private Integer qtde;
-	private Float valor;
+	private String attr1;
+	private Integer attr2;
+	private String attr3;
 	
 	public Produto() {
 		
 	}
-	
+
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
 	@NotNull(message="Nome não pode ser nulo")
-	public String getNome() {
-		return nome;
+	public String getAttr1() {
+		return attr1;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+
+	public void setAttr1(String attr1) {
+		this.attr1 = attr1;
 	}
-	@NotNull(message="Qtde não pode ser nula")
-	public Integer getQtde() {
-		return qtde;
+	@NotNull(message="Quantidade não pode ser nulo")
+	public Integer getAttr2() {
+		return attr2;
 	}
-	public void setQtde(Integer qtde) {
-		this.qtde = qtde;
+
+	public void setAttr2(Integer attr2) {
+		this.attr2 = attr2;
 	}
-	@NotNull(message="Valor não pode ser nulo")
-	public Float getValor() {
-		return valor;
+	@NotNull(message="Preço não pode ser nulo")
+	public String getAttr3() {
+		return attr3;
 	}
-	public void setValor(Float valor) {
-		this.valor = valor;
+
+	public void setAttr3(String attr3) {
+		this.attr3 = attr3;
 	}
+
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", qtde=" + qtde + ", valor=" + valor + "]";
+		return "Produto [id=" + id + ", attr1=" + attr1 + ", attr2=" + attr2 + ", attr3=" + attr3 + "]";
 	}
+	
 	
 	
 

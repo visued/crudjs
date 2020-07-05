@@ -13,7 +13,10 @@ function cadastrar(tema) {
             break;
         case 'Medicamento':
             endpoint =  'medicamento';                     
-            break;                           
+            break;
+        case 'Produto':
+            endpoint =  'produto';                     
+            break;                                 
         default:
             break;
     }
@@ -56,7 +59,11 @@ function consultar(tema) {
             endpoint =  'spaceship';            
             break;
         case 'Medicamento':
-            endpoint =  'medicamento';           
+            endpoint =  'medicamento';      
+            break
+        case 'Produto':
+            endpoint =  'produto';                     
+            break;      
         default:
             break;
     } 
