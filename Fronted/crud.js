@@ -9,8 +9,8 @@ function cadastrar(tema) {
             endpoint =  'pokemon';            
             break;
         case 'Spaceship':
-            endpoint =  'spaceship';            
-            break;            
+            endpoint =  'spaceship';                     
+            break;                         
         default:
             break;
     }
@@ -54,12 +54,12 @@ function consultar(tema) {
         default:
             break;
     } 
-       
+
     // recupera a tabela
     const tabela = document.getElementById("tabela")
     // consome a API
     var request = new XMLHttpRequest()
-    request.open('GET', 'http://localhost:8080/api/'+endpoint, true)
+    request.open('GET', `http://localhost:8080/api/${endpoint}`, true)
     request.onload = function() {
         let obj = JSON.parse(this.response);
         if ((request.status >= 200) && (request.status < 400)) {
@@ -88,7 +88,7 @@ function consultar(tema) {
                 const imagemRemocao = document.createElement('img')
                 imagemRemocao.setAttribute('src', 'remove.png')
                     // inserir o atributo onclick=remover(id)
-                imagemRemocao.setAttribute('onclick', `remover(${generico.id}, ${tema})`)
+                imagemRemocao.setAttribute('onclick', `remover(${generico.id}, ${tema}, ${endpoint})`)
                 coluna4.appendChild(imagemRemocao)
                     // cria coluna 5
                 const coluna5 = document.createElement('td')
@@ -115,9 +115,7 @@ function consultar(tema) {
 
 }
 
-function remover(id, tema) {
-    // Caminho do endpoint
-    let endpoint = '';
+function remover(id, tema, endpoint) {
     // cria um objeto para fazer requisição
     let request = new XMLHttpRequest()
         // abri a conexão
