@@ -123,12 +123,10 @@ function consultar(tema) {
 }
 
 function remover(obj, endpoint) {
-    console.log(obj.id);
-    console.log(endpoint);
     // cria um objeto para fazer requisição
     let request = new XMLHttpRequest()
     // abri a conexão
-    request.open(`DELETE`, `http://localhost:8080/${endpoint}/${id}`, true)
+    request.open(`DELETE`, `http://localhost:8080/${endpoint}/${obj.id}`, true)
     request.onload = function() {
             if ((request.status >= 200) && (request.status < 400)) {
                 console.log(`Conectou com sucesso`)
