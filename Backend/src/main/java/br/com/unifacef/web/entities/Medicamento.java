@@ -9,7 +9,6 @@ public class Medicamento {
 	@Id
 	private String id;
 	private String nome;
-	private String principio_ativo;
 	private Integer concentracao;
 	private Float valor;
 	
@@ -32,14 +31,6 @@ public class Medicamento {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	@NotNull(message="Principio ativo não pode ser nulo")
-	public String getPrincipio_ativo() {
-		return principio_ativo;
-	}
-
-	public void setPrincipio_ativo(String principio_ativo) {
-		this.principio_ativo = principio_ativo;
-	}
 	
 	@NotNull(message="Concentracao não pode ser nulo")
 	public Integer getConcentracao() {
@@ -61,7 +52,7 @@ public class Medicamento {
 
 	@Override
 	public String toString() {
-		return "Medicamento [id=" + id + ", nome=" + nome + ", principio_ativo=" + principio_ativo + ", concentracao="
+		return "Medicamento [id=" + id + ", nome=" + nome + ", concentracao="
 				+ concentracao + ", valor=" + valor + "]";
 	}
 	

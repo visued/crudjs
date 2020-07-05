@@ -10,7 +10,10 @@ function cadastrar(tema) {
             break;
         case 'Spaceship':
             endpoint =  'spaceship';                     
-            break;                         
+            break;
+        case 'Medicamento':
+            endpoint =  'medicamento';                     
+            break;                           
         default:
             break;
     }
@@ -18,6 +21,7 @@ function cadastrar(tema) {
     generico.attr1 = document.getElementById('attr1').value
     generico.attr2 = Number(document.getElementById('attr2').value)
     generico.attr3 = document.getElementById('attr3').value
+    
     // vamos recuperar o ID por causa da atualização
     generico.id = document.getElementById('id').value
 
@@ -25,7 +29,7 @@ function cadastrar(tema) {
     // cria um objeto para fazer requisição
     var request = new XMLHttpRequest()
         // abri a conexão
-    request.open('POST', `http://localhost:8080/api/${endpoint}`, true);
+    request.open('POST', `http://localhost:8080/${endpoint}`, true);
     request.onload = function() {
             if ((request.status >= 200) && (request.status < 400)) {
                 console.log(`Conectou com sucesso`)
@@ -50,7 +54,9 @@ function consultar(tema) {
             break;
         case 'Spaceship':
             endpoint =  'spaceship';            
-            break;            
+            break;
+        case 'Medicamento':
+            endpoint =  'medicamento';           
         default:
             break;
     } 
@@ -59,7 +65,7 @@ function consultar(tema) {
     const tabela = document.getElementById("tabela")
     // consome a API
     var request = new XMLHttpRequest()
-    request.open('GET', `http://localhost:8080/api/${endpoint}`, true)
+    request.open('GET', `http://localhost:8080/${endpoint}`, true)
     request.onload = function() {
         let obj = JSON.parse(this.response);
         if ((request.status >= 200) && (request.status < 400)) {
@@ -119,7 +125,7 @@ function remover(id, tema, endpoint) {
     // cria um objeto para fazer requisição
     let request = new XMLHttpRequest()
         // abri a conexão
-    request.open('DELETE', `http://localhost:8080/api/${endpoint}/${id}`, true)
+    request.open('DELETE', `http://localhost:8080/${endpoint}/${id}`, true)
     request.onload = function() {
             if ((request.status >= 200) && (request.status < 400)) {
                 console.log(`Conectou com sucesso`)

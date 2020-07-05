@@ -12,7 +12,6 @@ public class Produto {
 	@Id
 	private String id;
 	private String nome;
-	private String tipo;
 	private Integer qtde;
 	private Float valor;
 	
@@ -33,13 +32,6 @@ public class Produto {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	@NotNull(message="Tipo não pode ser nulo")
-	public String getTipo() {
-		return tipo;
-	}
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
 	@NotNull(message="Qtde não pode ser nula")
 	public Integer getQtde() {
 		return qtde;
@@ -56,7 +48,7 @@ public class Produto {
 	}
 	@Override
 	public String toString() {
-		return "Produto [id=" + id + ", nome=" + nome + ", tipo=" + tipo + ", qtde=" + qtde + ", valor=" + valor + "]";
+		return "Produto [id=" + id + ", nome=" + nome + ", qtde=" + qtde + ", valor=" + valor + "]";
 	}
 	
 	
