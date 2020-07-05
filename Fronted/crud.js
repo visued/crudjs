@@ -18,12 +18,12 @@ function cadastrar(tema) {
             break;
     }
 
-    generico.attr1 = document.getElementById('attr1').value
-    generico.attr2 = Number(document.getElementById('attr2').value)
-    generico.attr3 = document.getElementById('attr3').value
+    obj.attr1 = document.getElementById('attr1').value
+    obj.attr2 = Number(document.getElementById('attr2').value)
+    obj.attr3 = document.getElementById('attr3').value
     
     // vamos recuperar o ID por causa da atualização
-    generico.id = document.getElementById('id').value
+    obj.id = document.getElementById('id').value
 
     // vamos consumir a API
     // cria um objeto para fazer requisição
@@ -71,7 +71,7 @@ function consultar(tema) {
         if ((request.status >= 200) && (request.status < 400)) {
             console.log(`Conectou com sucesso`)
                 // estrutura de repetição
-            obj.forEach(generico => {
+            obj.forEach(obj => {
                 // cria uma linha
                 const linha = document.createElement('tr')
                     // adiciona a linha na tabela
@@ -79,30 +79,30 @@ function consultar(tema) {
                     // cria coluna 1
                 const coluna1 = document.createElement('td')
                     // define conteúdo
-                coluna1.textContent = generico.attr1
+                coluna1.textContent = obj.attr1
                     // cria coluna 2
                 const coluna2 = document.createElement('td')
                     // define conteúdo
-                coluna2.textContent = generico.attr2
+                coluna2.textContent = obj.attr2
                     // cria coluna 3
                 const coluna3 = document.createElement('td')
                     // define conteúdo
-                coluna3.textContent = generico.attr3
+                coluna3.textContent = obj.attr3
                     // cria coluna 4
                 const coluna4 = document.createElement('td')
                     // conteúdo
                 const imagemRemocao = document.createElement('img')
                 imagemRemocao.setAttribute('src', 'remove.png')
                     // inserir o atributo onclick=remover(id)
-                imagemRemocao.setAttribute('onclick', `remover(${generico.id}, ${tema}, ${endpoint})`)
+                imagemRemocao.setAttribute('onclick', `remover(${obj.id}, ${tema}, ${endpoint})`)
                 coluna4.appendChild(imagemRemocao)
                     // cria coluna 5
                 const coluna5 = document.createElement('td')
                     // conteúdo
                 const imagemAtualiza = document.createElement('img')
                 imagemAtualiza.setAttribute('src', 'atualiza.png')
-                    // inserir o atributo onclick=atualizar(generico)
-                imagemAtualiza.setAttribute('onclick', `atualizar(${JSON.stringify(generico)})`)
+                    // inserir o atributo onclick=atualizar(obj)
+                imagemAtualiza.setAttribute('onclick', `atualizar(${JSON.stringify(obj)})`)
                 coluna5.appendChild(imagemAtualiza)
                     // adiciona as colunas na linha
                 linha.appendChild(coluna1)
@@ -140,10 +140,10 @@ function remover(id, tema, endpoint) {
     location.reload()
 }
 
-function atualizar(generico) {
-    // obter o dados do objeto generico que será atualizado e enviar para caixas de texto
-    document.getElementById('attr1').value = generico.attr1
-    document.getElementById('attr2').value = generico.attr2
-    document.getElementById('attr3').value = generico.attr3
-    document.getElementById('id').value = generico.id
+function atualizar(obj) {
+    // obter o dados do objeto obj que será atualizado e enviar para caixas de texto
+    document.getElementById('attr1').value = obj.attr1
+    document.getElementById('attr2').value = obj.attr2
+    document.getElementById('attr3').value = obj.attr3
+    document.getElementById('id').value = obj.id
 }
